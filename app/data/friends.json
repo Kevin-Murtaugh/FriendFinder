@@ -1,4 +1,3 @@
-var friends =
 [
     {
     "name":"Jane Lovesall",
@@ -144,5 +143,4 @@ var friends =
         1
       ]
   }
-];
-               
+]               
