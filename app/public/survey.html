@@ -51,7 +51,7 @@
 </head>
 
 <body>
-  <script>
+ <!-- //
     // var questionArray = [
     // "I prefer a European swallow over an African swallow?",
     // "I will bring you a shrubery!",
@@ -63,15 +63,15 @@
     // "Not all knights are truly, 'Stupid English ka-nig-its.'",
     // "Strange women lying in ponds distributing swords is a solid basis for a government.",
     // "Camelot is a silly place."]
-    //
-  </script>
+    // -->
   <html>
-  <div class=c ontainer>
-    <div class=j umobtron>
+
+  <div class=container>
+    <div class=jumobtron>
       <h1>
         <st></st>Welcome to Friend Finder</stronger>
       </h1>
-      <h2>Take the survey and find new friends</h2>
+      <h2>Take the survey and find a new friend.</h2>
     </div>
   </div>
 
@@ -81,11 +81,9 @@
   <h3>Your Image Url</h3>
   <input type="text" id="url">
 
-  <h3>
-    <strong>Question </strong>
-  </h3>
+  <h3>Question 1</h3>
   <h4>I prefer a European swallow over an African swallow.</h4>
-  <select class="chosen-select" id="q1">
+  <select id="q1">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -94,11 +92,9 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <h3>
-    <strong>Question 2</strong>
-  </h3>
+  <h3>Question 2</h3>
   <h4>I will bring you a shrubery!</h4>
-  <select class="chosen-select" id="q2">
+  <select id="q2">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -108,11 +104,9 @@
   </select>
 
 
-  <h3>
-    <strong>Question 3</strong>
-  </h3>
+  <h3>Question 3</h3>
   <h4>It's never more than a flesh wound.</h4>
-  <select class="chosen-select" id="q3">
+  <select id="q3">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -122,11 +116,9 @@
   </select>
 
 
-  <h3>
-    <strong>Question 4</strong>
-  </h3>
+  <h3>Question 4</h3>
   <h4>I'm not dead yet. In fact I'm getting better!</h4>
-  <select class="chosen-select" id="q4">
+  <select id="q4">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -136,11 +128,9 @@
   </select>
 
 
-  <h3>
-    <strong>Question 5</strong>
-  </h3>
+  <h3>Question 5</h3>
   <h4>My favorite color is red, no it's really blue.</h4>
-  <select class="chosen-select" id="q5">
+  <select id="q5">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -150,11 +140,9 @@
   </select>
 
 
-  <h3>
-    <strong>Question 6</strong>
-  </h3>
+  <h3>Question 6</h3>
   <h4>You are a knight who says 'Ni!'</h4>
-  <select class="chosen-select" id="q6">
+  <select id="q6">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -164,11 +152,9 @@
   </select>
 
 
-  <h3>
-    <strong>Question 7</strong>
-  </h3>
+  <h3>Question 7</h3>
   <h4>You would rather be a knight who says 'Ticky, ticky!"</h4>
-  <select class="chosen-select" id="q7">
+  <select id="q7">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -177,11 +163,9 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <h3>
-    <strong>Question 8</strong>
-  </h3>
+  <h3>Question 8</h3>
   <h4>Not all knights are truly, 'Stupid English ka-nig-its.'</h4>
-  <select class="chosen-select" id="q8">
+  <select id="q8">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -190,11 +174,9 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <h3>
-    <strong>Question 9</strong>
-  </h3>
+  <h3>Question 9</h3>
   <h4>Strange women lying in ponds distributing swords is a solid basis for a government.</h4>
-  <select class="chosen-select" id="q9">
+  <select id="q9">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -203,11 +185,9 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <h3>
-    <strong>Question 10</strong>
-  </h3>
+  <h3>Question 10</h3>
   <h4>Camelot is a silly place.</h4>
-  <select class="chosen-select" id="q10">
+  <select id="q10">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
     <option value="2">2</option>
@@ -235,6 +215,16 @@
       const q9 = document.getElementById('q9').value;
       const q10 = document.getElementById('q10').value;
 
+       if (
+            (name !== '') && (photo !== '') && (!isNaN(q1)) &&
+            (!isNaN(q2)) && (!isNaN(q3)) && (!isNaN(q4)) &&
+            (!isNaN(q5)) && (!isNaN(q6)) && (!isNaN(q7)) &&
+            (!isNaN(q8)) && (!isNaN(q9)) && (!isNaN(q10))
+        ) {
+          console.log("passsed /true");
+        } else {
+          console.log("failed /false /else");
+        };
 
       $.post('http://localhost:3000/compare', {
 
@@ -255,11 +245,40 @@
     }
   </script>
 
-
-
   <button onclick="submitForm()">Submit Survey</button>
+  <br>
+  <br>
+  <br>
+
+<!-- Modal -->
+  <div class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+             <h4 class="modal-title"></h4>
+        </div>
+          <div class="modal-body text-center">
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
+  <a href="/">
+      <button type="button" class="btn btn-primary">
+          Return Home
+      </button>
+  </a>
+  <hr>
+  <footer class="footer">
+      <p>
+          <a href="/api/friends">API Friends List</a> | <a href="xxxx">GitHub Repo</a>
+      </p>
+  </footer>
 
 </body>
 
