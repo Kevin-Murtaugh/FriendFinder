@@ -21,10 +21,18 @@
   <style>
     jumbotron {
       background-color: blue
+
     }
 
     body {
       background-color: skyblue
+
+
+    }
+
+    body {
+      background-color:  skyblue
+
     }
 
     h1 {
@@ -202,14 +210,22 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 132781080b116229affae96175a0b40bdb9995d6
 
   <div id="showNewFriend"></div>
 
 
   <script type="text/javascript">
     function submitForm() {
+<<<<<<< HEAD
       console.log("inside submitForm");
+=======
+        console.log("inside submitForm");
+>>>>>>> 132781080b116229affae96175a0b40bdb9995d6
       const name = document.getElementById('name').value;
       const url = document.getElementById('url').value;
       const q1 = document.getElementById('q1').value;
@@ -222,53 +238,88 @@
       const q8 = document.getElementById('q8').value;
       const q9 = document.getElementById('q9').value;
       const q10 = document.getElementById('q10').value;
+      console.log("weeks", name, q1, q2, q3," ...q10 ", q10);
 
-      var friend = {
-        name: name,
-        photo: url,
-        scores: [
-          q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
-        ]
-      };
+// <<<<<<< HEAD
+//       var friend = {
+//         name: name,
+//         photo: url,
+//         scores: [
+//           q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
+//         ]
+//       };
 
-      $.post('http://localhost:3000/api/friends', {friend: friend}, function(friend) {
-        console.log(friend);
-        $(".modal").addClass("show");
-      });
-      // console.log("weeks", name, q1, q2, q3, " ...q10 ", q10);
+//       $.post('http://localhost:3000/api/friends', {friend: friend}, function(friend) {
+//         console.log(friend);
+//         $(".modal").addClass("show");
+//       });
+//       // console.log("weeks", name, q1, q2, q3, " ...q10 ", q10);
 
-      // if (
-      //   (name !== '') && (url !== '') && (!isNaN(q1)) &&
-      //   (!isNaN(q2)) && (!isNaN(q3)) && (!isNaN(q4)) &&
-      //   (!isNaN(q5)) && (!isNaN(q6)) && (!isNaN(q7)) &&
-      //   (!isNaN(q8)) && (!isNaN(q9)) && (!isNaN(q10))
-      // ) {
-      //   console.log("passsed /true");
-      //   compareScores(name, url, friendScores);
-      // } else {
-      //   console.log("failed /false /else");
-      // };
+//       // if (
+//       //   (name !== '') && (url !== '') && (!isNaN(q1)) &&
+//       //   (!isNaN(q2)) && (!isNaN(q3)) && (!isNaN(q4)) &&
+//       //   (!isNaN(q5)) && (!isNaN(q6)) && (!isNaN(q7)) &&
+//       //   (!isNaN(q8)) && (!isNaN(q9)) && (!isNaN(q10))
+//       // ) {
+//       //   console.log("passsed /true");
+//       //   compareScores(name, url, friendScores);
+//       // } else {
+//       //   console.log("failed /false /else");
+//       // };
 
-      // function compareScores(name, url, scoresArr) {
+//       // function compareScores(name, url, scoresArr) {
 
-      //   let friendsScores = [];
+//       //   let friendsScores = [];
 
-      //   for (let i = 0; i < friends.length; i++) {
+//       //   for (let i = 0; i < friends.length; i++) {
 
-      //     let sumOfDiffs = 0;
+//       //     let sumOfDiffs = 0;
 
-      //     for (let j = 0; j < friends[i].scores.length; j++) {
-      //       sumOfDiffs += Math.abs(friends[i].scores[j] - scoresArr[j]);
-      //     }
-      //     friends[i].sumOfDiffs = sumOfDiffs;
-      //     console.log(`${friends[i].name} => ${sumOfDiffs}`);
-      //   }
-      // }
+//       //     for (let j = 0; j < friends[i].scores.length; j++) {
+//       //       sumOfDiffs += Math.abs(friends[i].scores[j] - scoresArr[j]);
+//       //     }
+//       //     friends[i].sumOfDiffs = sumOfDiffs;
+//       //     console.log(`${friends[i].name} => ${sumOfDiffs}`);
+//       //   }
+//       // }
+//       // $.post('http://localhost:3000/compare', {
+
+//       //   name: name,
+//       //   photo: url,
+//       //   scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+
+       if (
+            (name !== '') && (url !== '') && (!isNaN(q1)) &&
+            (!isNaN(q2)) && (!isNaN(q3)) && (!isNaN(q4)) &&
+            (!isNaN(q5)) && (!isNaN(q6)) && (!isNaN(q7)) &&
+            (!isNaN(q8)) && (!isNaN(q9)) && (!isNaN(q10))
+        ) {
+          console.log("passsed /true");
+          compareScores(name, url, friendScores);
+        } else {
+          console.log("failed /false /else");
+        };
+
+      function compareScores(name, url, scoresArr) {
+
+let friendsScores = [];
+
+for (let i = 0; i < friends.length; i++) {
+
+  let sumOfDiffs = 0;
+
+  for (let j = 0; j < friends[i].scores.length; j++) {
+    sumOfDiffs += Math.abs(friends[i].scores[j] - scoresArr[j]);
+     }
+  friends[i].sumOfDiffs = sumOfDiffs;
+  console.log(`${friends[i].name} => ${sumOfDiffs}`);
+}}
       // $.post('http://localhost:3000/compare', {
 
       //   name: name,
       //   photo: url,
       //   scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+
 
       // }).then(newFriend => {
 
@@ -282,10 +333,7 @@
 
     }
   </script>
-
   <button onclick="submitForm()">Submit Survey</button>
-
-
   <br>
   <br>
   <br>
@@ -309,20 +357,15 @@
   </div>
 
 
-  <a href="./home.html">
-    <button type="button" class="btn btn-primary">
+  <a href="./home.html" button type="button" class="btn btn-primary">
       Return Home
     </button>
   </a>
-  <hr>
   <footer class="footer">
     <p>
-      <a href="app/data/friends.json">API Friends List</a> |
-      
-    </a>
-    <a href="https://github.com/Kevin-Murtaugh/FriendFinder">GitHub Repo</a>
+        <a href="../data/friends.json">API Friends List</a> | <a href="https://github.com/Kevin-Murtaugh/FriendFinder">GitHub Repo</
     </p>
-  </footer>
+</footer>
 
 </body>
 
