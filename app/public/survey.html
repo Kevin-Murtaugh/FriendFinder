@@ -1,5 +1,5 @@
-<!--DOCTYPE html-->
-<!--    survey.html -->
+<!DOCTYPE html>
+<html>
 
 <head>
   <meta charset="utf-8">
@@ -7,10 +7,6 @@
   <title>Friend Finder</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Links to CSS, Bootstrap & JS -->
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
@@ -20,17 +16,17 @@
   <script src="https://code.jquery.com/jquery.js"></script>
   <style>
     jumbotron {
-      background-color: lightblue
+      background-color: blue
     }
 
     body {
-      background-color: lightgray
+      background-color: skyblue
     }
 
     h1 {
       color: blue;
       text-align: center;
-      margin: 50px
+      margin: 20px
     }
 
     h2 {
@@ -44,28 +40,19 @@
       max-width: 400px;
 
     }
-  </style>
 
-  <script type="text/javascript" src="friends.js"></script>
+    img {
+      width: 100%;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
 
 </head>
 
 <body>
- <!-- //
-    // var questionArray = [
-    // "I prefer a European swallow over an African swallow?",
-    // "I will bring you a shrubery!",
-    // "It's never more than a flesh wound?",
-    // "I'm not dead yet.  In fact I'm getting better!",
-    // "My favorite color really red, no it's blue.",
-    // "You are a knight who says 'Ni!'",
-    // "You would rather be a knight who says 'Ticky, ticky'",
-    // "Not all knights are truly, 'Stupid English ka-nig-its.'",
-    // "Strange women lying in ponds distributing swords is a solid basis for a government.",
-    // "Camelot is a silly place."]
-    // -->
-  <html>
-
   <div class=container>
     <div class=jumobtron>
       <h1>
@@ -93,7 +80,7 @@
   </select>
 
   <h3>Question 2</h3>
-  <h4>I will bring you a shrubery!</h4>
+  <h4>I will bring you a shrubbery!</h4>
   <select id="q2">
     <option value=""></option>
     <option value="1">1 (Strongly Disagree)</option>
@@ -196,12 +183,13 @@
     <option value="5">5 (Strongly Agree)</option>
   </select>
 
-  <div id="newFriend"></div>
+
+
+  <div id="showNewFriend"></div>
 
 
   <script type="text/javascript">
     function submitForm() {
-
       const name = document.getElementById('name').value;
       const url = document.getElementById('url').value;
       const q1 = document.getElementById('q1').value;
@@ -215,71 +203,66 @@
       const q9 = document.getElementById('q9').value;
       const q10 = document.getElementById('q10').value;
 
-       if (
-            (name !== '') && (photo !== '') && (!isNaN(q1)) &&
-            (!isNaN(q2)) && (!isNaN(q3)) && (!isNaN(q4)) &&
-            (!isNaN(q5)) && (!isNaN(q6)) && (!isNaN(q7)) &&
-            (!isNaN(q8)) && (!isNaN(q9)) && (!isNaN(q10))
-        ) {
-          console.log("passsed /true");
-        } else {
-          console.log("failed /false /else");
-        };
-
-      $.post('http://localhost:3000/compare', {
-
+      var friend = {
         name: name,
         photo: url,
-        scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+        scores: [
+          q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
+        ]
+      };
 
-      }).then(newFriend => {
-
-        console.log(newFriend);
-
-        document.getElementById('newFriend').innerHTML =
-          `<p>${newFriend.name}</p><p><img src="${newFriend.photo}"></p>`;
-
-      })
-
+      $.post('https://fierce-wildwood-30925.herokuapp.com/api/friends', { friend: friend }, function (friend) {
+        $(".modal").addClass("show");
+      });
 
     }
   </script>
 
   <button onclick="submitForm()">Submit Survey</button>
+
+
   <br>
   <br>
   <br>
 
-<!-- Modal -->
+  <!-- Modal -->
   <div class="modal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-             <h4 class="modal-title"></h4>
+          <button type="button" class="closeModal" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Vince</h4>
         </div>
-          <div class="modal-body text-center">
+        <div class="modal-body text-center">
+          <img src="https://www.flgov.com/wp-content/uploads/images/20150327_GRS_HI_RES.jpg" />
         </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="modal-footer">
+          <button class="closeModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
 
-  <a href="/">
-      <button type="button" class="btn btn-primary">
-          Return Home
-      </button>
+  <a href="./home.html">
+    <button type="button" class="btn btn-primary">
+      Return Home
+    </button>
   </a>
   <hr>
   <footer class="footer">
-      <p>
-          <a href="/api/friends">API Friends List</a> | <a href="xxxx">GitHub Repo</a>
-      </p>
+    <p>
+      <a href="../data/friends.json">API Friends List</a> |
+      <a href="https://github.com/Kevin-Murtaugh/FriendFinder">GitHub Repo</a>
+    </p>
   </footer>
-
+  <script type="text/javascript">
+    {
+      $(".closeModal").on('click', function() {
+        $(".modal").removeClass("show");
+      });      
+    }
+  </script>
 </body>
 
 </html>
