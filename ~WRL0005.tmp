@@ -1,28 +1,3 @@
-May 3, 2018
-===========
-
-UCF Full Stack Developer Bootcamp, Week 7 project
-
-HTML/CSS +nodal, JavaScript/JQuery, Node.js with Express, FS, Body-Parser plus
-Heroku
-
-Build a application simulating Tinder /Friend Finder. Architect the files and
-data such that all the heavy lifting takes place on the server side, thus
-minimizing the load on the client side and making page update quick.
-
-Instructions embedded at the bottom of this README. The survey was built using
-10 questions based on “Month Python & The Holy Grail.” A JSON with data from 10
-users was built in and given extreme score, fictitious names and then associated
-with famous people including George Bush, Hillary Clinton and even Snoopy as
-“Joe Cool.”
-
-The result is a humorous walk through Monty Python followed by a punch line of a
-funny name associated with a famous person. Oh, and it shows off some
-technological capabilities too… lol.
-
-The Heroku website is published at:
-<https://fierce-wildwood-30925.herokuapp.com/>
-
 Friend Finder - Node and Express Servers
 ========================================
 
@@ -45,8 +20,8 @@ so other users can fill it out.
 -   Create a folder called `FriendFinder`. Inside the folder, organize your
     directories so it matches the following:
 
-`FriendFinder     - .gitignore     - app       - data         - friends.js -
-public         - home.html         - survey.html       - routing         -
+`FriendFinder     - .gitignore     - app       - data         - friends.js
+- public         - home.html         - survey.html       - routing         -
 apiRoutes.js         - htmlRoutes.js     - node_modules     - package.json     -
 server.js`
 
