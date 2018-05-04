@@ -8,14 +8,16 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- <link rel="JSON" href= "./app/data/friends.json"> -->
+
   <!-- Links to CSS, Bootstrap & JS -->
   <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-    crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" -->
+    <!-- crossorigin="anonymous"> -->
 
   <script src="https://code.jquery.com/jquery.js"></script>
   <style>
@@ -60,7 +62,6 @@
       margin-left: 40px;
       margin-bottom: 10px
     }
-  }
     #surveybutton {
       margin-left: 50px;
       margin-bottom: 10px;
@@ -79,7 +80,7 @@
     }
   </style>
 
-  <!-- <script type="text/javascript" src="friends.js"></script> -->
+  <!-- <script type="text/javascript" src="/app/data/friends.json"></script> -->
 
 </head>
 
@@ -235,21 +236,21 @@
       const q8 = document.getElementById('q8').value;
       const q9 = document.getElementById('q9').value;
       const q10 = document.getElementById('q10').value;
-      console.log("weeks", name, q1, q2, q3," ...q10 ", q10);
+      console.log("inputs", name, q1, q2, q3," ...q10 ", q10);
 
-// <<<<<<< HEAD
-//       var friend = {
-//         name: name,
-//         photo: url,
-//         scores: [
-//           q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
-//         ]
-//       };
+      var surveyFriend = {
+        name: name,
+        photo: url,
+        scores: [
+          q1, q2, q3, q4, q5, q6, q7, q8, q9, q10
+        ]
+      };
+console.log(surveyFriend);
 
-//       $.post('http://localhost:3000/api/friends', {friend: friend}, function(friend) {
-//         console.log(friend);
-//         $(".modal").addClass("show");
-//       });
+      $.post('http://localhost:3000/api/friends', {surveyFriend: surveyFriend}, function(surveyFriend) {
+ //       console.log(friend);
+        $(".modal").addClass("show");
+      });
 //       // console.log("weeks", name, q1, q2, q3, " ...q10 ", q10);
 
 //       // if (
@@ -289,28 +290,29 @@
             (name !== '') && (url !== '') && (!isNaN(q1)) &&
             (!isNaN(q2)) && (!isNaN(q3)) && (!isNaN(q4)) &&
             (!isNaN(q5)) && (!isNaN(q6)) && (!isNaN(q7)) &&
-            (!isNaN(q8)) && (!isNaN(q9)) && (!isNaN(q10))
+            (!isNa?N(q8)) && (!isNaN(q9)) && (!isNaN(q10))
         ) {
-          console.log("passsed /true");
-          compareScores(name, url, friendScores);
+
+          compareScores(name, url, surveyFriend.scores);
         } else {
           console.log("failed /false /else");
         };
-
+}
       function compareScores(name, url, scoresArr) {
 
-let friendsScores = [];
+// let friendsScores = [];
 
-for (let i = 0; i < friends.length; i++) {
+// for (let i = 0; i < friends.length; i++) {
 
-  let sumOfDiffs = 0;
+//   let sumOfDiffs = 0;
 
-  for (let j = 0; j < friends[i].scores.length; j++) {
-    sumOfDiffs += Math.abs(friends[i].scores[j] - scoresArr[j]);
-     }
-  friends[i].sumOfDiffs = sumOfDiffs;
-  console.log(`${friends[i].name} => ${sumOfDiffs}`);
-}}
+//   for (let j = 0; j < friends[i].scores.length; j++) {
+//     console.log( friends[i].scores[j], scoresArr[j]);
+//     sumOfDiffs += Math.abs(friends[i].scores[j] - scoresArr[j]);
+//      }
+//   friendsScores[i] = sumOfDiffs;
+//   console.log(`${friends[i].name} => ${sumOfDiffs}`);
+// }}
       // $.post('http://localhost:3000/compare', {
 
       //   name: name,

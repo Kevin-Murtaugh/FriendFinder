@@ -33,7 +33,7 @@ module.exports = function(app) {
   });
 
   function compareScores(scoresArr) {
-
+      console.log(scoresArr);
     let friends = JSON.parse(fs.readFileSync('./app/data/friends.json'));
     for (let i = 0; i < friends.length; i++) {
   
@@ -41,7 +41,7 @@ module.exports = function(app) {
   
       for (let j = 0; j < friends[i].scores.length; j++) {
         sumOfDiffs += Math.abs(friends[i].scores[j] - scoresArr[j]);
-  
+        
       }
   
       friends[i].sumOfDiffs = sumOfDiffs;
@@ -58,15 +58,3 @@ module.exports = function(app) {
   
   }
 }
-
-// // ---------------------------------------------------------------------------
-//   // I added this below code so you could clear out the table while working with the functionality.
-//   // Don"t worry about it!
-
-//   app.post("/api/clear", function() {
-//     // Empty out the arrays of data
-//     tableData = [];
-//     waitListData = [];
-
-//     console.log(tableData);
-//   });
